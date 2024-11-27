@@ -33,8 +33,8 @@ exports.handler = async (event) => {
       }
 
       // Lógica de conversión de monedas
-      const apiKey = '${secrets.API_KEY}'; // Reemplaza con tu API key de exchangerate-api.com
-      const url = `https://v6.exchangerate-api.com/v6/${secrets.API_KEY}/latest/${base_currency}`;
+      const apiKey = 'd2f1e847bfc07d987036fef1'; // Reemplaza con tu API key de exchangerate-api.com
+      const url = `https://v6.exchangerate-api.com/v6/d2f1e847bfc07d987036fef1/latest/${base_currency}`;
 
       const response = await axios.get(url);
       const rates = response.data.conversion_rates;
