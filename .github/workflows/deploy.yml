@@ -1,0 +1,36 @@
+name: "app deploy"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy lambda:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+      
+      - name: configure nodejs
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+      
+      - name: Configure AWS credentials from AWS account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          role-session-name: GitHub-OIDC-TERRAFORM    #AWS credentials for terraforms OIDC
+      
+      - name: install dependencies
+        run: |
+          npm ci
+      - name: Create lambda package
+        run: |
+          zip -r index.zip . -x '*.git*'
+      
+      - name: Deploy in lambda
+        run: |
+          aws lambda update-function-code --function-name=lab-lambda --zip-file fileb://index.zip
+      
