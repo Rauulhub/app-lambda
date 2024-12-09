@@ -74,6 +74,6 @@ Resultando:
 
   el uso de Github actions se programo para que en diferentes fases:
       
-    fase 1: push se ejecuta `npm ci`, luego se empaqueta el archivo y se envia a la lambda
-    
+    fase 1: push se ejecuta `npm ci` , luego se empaqueta el archivo `zip -r index.zip . -x '*.git*'` y se envia a la lambda `aws lambda update-function-code --function-name=lab-lambda --zip-file fileb://index.zip`
+  
 
