@@ -20,9 +20,13 @@
       "timestamp": "2024-11-19T14:30:00Z"
       }
   ```
+
   2. Conversión de Monedas
+     
       ● Método: POST
+     
       ● Endpoint: /convert
+     
       ● Request:
 
   ```
@@ -34,7 +38,9 @@
   ```
 
 ○  amount (number): Monto a convertir.
+
 ○ from (string): Moneda de origen (ej., USD).
+
 ○ to (string): Moneda de destino (ej., EUR).
 
   el uso de Github actions se programo para que en diferentes fases:
