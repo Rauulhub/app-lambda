@@ -5,7 +5,7 @@
   Se implementa codigo en nodeJs para ser empaquetado y enviado a una lambda.
   Se crean los siguientes endpoints en la API:
   
-    1. Healthcheck
+  1. Healthcheck
     
       ● Método: GET
       
